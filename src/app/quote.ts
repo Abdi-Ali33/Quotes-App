@@ -1,9 +1,16 @@
-import { ɵBrowserPlatformLocation } from '@angular/platform-browser';
-
 export class Quote {
-  showInfo: boolean;
-  constructor(public id:number,public name:string,public title:string,public quote:string,public author:string, public datePosted: Date,public likes:number, public dislikes:number){
-      this.showInfo=false;
-    }
+  isDescriptionShown: boolean;
+downVotes: any;
+upVotes: any;
+  // upVotes: number;
+  // downVotes: number;
+  constructor(
+    public authorName: string,
+    public quoteText: string,
+    public createdBy: string,
+    public dateCreated: Date) {
+      this.isDescriptionShown = false;
+      // this.upVotes = 0;
+      // this.downVotes = 0;
+  }
 }
-
