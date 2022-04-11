@@ -90,6 +90,6 @@ Github Profile- https://github.com/Abdi-Ali33
 
 ## Live Link
 
-[Here is live link to the site]([Here is live link to the site](https://abdi-ali33.github.io/Safety-First-Website/)
+[Here is live link to the site](https://abdi-ali33.github.io/Safety-First-Website/)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.1.
