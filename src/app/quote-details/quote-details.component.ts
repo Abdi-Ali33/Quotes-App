@@ -1,6 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Quote } from '../quote';
-
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Quote } from '../quote'; 
 
 @Component({
   selector: 'app-quote-details',
@@ -8,59 +7,20 @@ import { Quote } from '../quote';
   styleUrls: ['./quote-details.component.css']
 })
 export class QuoteDetailsComponent implements OnInit {
-
-  //Add new quote below
-  quotes: Quote[] = [
-    new Quote('John', 'All that we are is the result of what we have thought. ', 'Buddha', new Date(2016, 10, 27)),
-    new Quote('Pius', 'I have no special talent. I am only passionately curious. ', 'Albert Einstein', new Date())
-  ];
-
+  @Input() quoty: Quote;
+  @Output() isRead = new EventEmitter<boolean>();
+  deleteQuote(read:boolean){
+    this.isRead.emit(read);
+  }
+  upvote(){
+    this.quoty.likes+=1;
+  }
+  downvote(){
+    this.quoty.dislikes+=1;
+  }
   constructor() { }
-  num1!: number;
-  num2!: number;
-  count!: number;
-
-  uploadQuote(myQuote:any) {
-    this.quotes.push(myQuote);
-  }
-
-  toggleDescription(index:any) {
-    this.quotes[index].isDescriptionShown = !this.quotes[index].isDescriptionShown;
-  }
-  //Delete quote function
-
-  deleteQuote(index:any) {
-    confirm('Do you want to delete this quote ?') ? this.quotes.splice(index, 1) : console.log('Not deleted');
-
-  }
-  highlightThis(highest:any) {
-    console.log(1);
-  }
-
-  addDownVote(index:any) {
-    this.quotes[index].downVotes++;
-  }
-  addUpVote(index:any) {
-    this.quotes[index].upVotes++;
-    // this.checkHighVote();
-  }
-
-  checkHighVote() {
-    const votesArray: number[] = [];
-    for (const quote of this.quotes) {
-      votesArray.push(quote.upVotes);
-    }
-    votesArray.sort();
-    console.log(votesArray[votesArray.length - 1]);
-    if (votesArray.length - 1 === votesArray.length - 2) {
-
-      return votesArray[votesArray.length - 2];
-    }
-
-    return votesArray[votesArray.length - 1];
-  }
 
   ngOnInit() {
   }
-}
 
+}

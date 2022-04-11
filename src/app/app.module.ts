@@ -1,33 +1,30 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { FormsModule } from '@angular/forms';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-// import { TagLineComponent } from './tag-line/tag-line.component';
-
-import { FormsModule } from '@angular/forms';
-import { QuoteDisplayComponent } from './quote-display/quote-display.component';
-import { DateCountPipe } from './date-count.pipe';
-import { HighlightDirective } from './highlight.directive';
-import { HttpClientModule } from '@angular/common/http';
-import { QuoteFormComponent } from './quote-form/quote-form.component';
+import { QuotesComponent } from './quotes/quotes.component';
 import { QuoteDetailsComponent } from './quote-details/quote-details.component';
+import { DatePipePipe } from './date-pipe.pipe';
+import { QuotesFormComponent } from './quotes-form/quotes-form.component';
+import { HighlightQouteDirective } from './highlight-qoute.directive';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    // TagLineComponent,
-    QuoteDisplayComponent,
-    DateCountPipe,
-    HighlightDirective,
-    QuoteFormComponent,
-    QuoteDetailsComponent
+    QuotesComponent,
+    QuoteDetailsComponent,
+    DatePipePipe,
+    QuotesFormComponent,
+    HighlightQouteDirective
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    SweetAlert2Module.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
